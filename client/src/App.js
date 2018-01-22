@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
+import Category from './components/Category';
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class App extends Component {
     let items = [];
     res.data.categories.map((item) => {
       let obj = item.categories;
-      items.push(<li key={obj.id} >{obj.name}</li>);
+      items.push(<Category id={obj.id} name={obj.name} />);
     });
     this.setState({categories: items })
 
