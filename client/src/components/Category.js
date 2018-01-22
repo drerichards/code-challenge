@@ -10,6 +10,7 @@ const Category = (props) => {
 
 Category.propTypes = {
     name: PropTypes.string.isRequired,
+    restaurants: PropTypes.arrayOf(Restaurant).isRequired
     // onclick: PropTypes.func.isRequired
 };
 
