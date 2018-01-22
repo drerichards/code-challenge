@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const config = require('./config-defaults');
+const server = require('../lib/zomato-client');
 
 router.get('/', (request, result, next) => {
   if(!request.body)
