@@ -34,7 +34,6 @@ class App extends Component {
       })
       .then(res => {
         console.log('Found data...setting');
-        console.log(res.data.categories);
         let items = [];
         res.data.categories.map( (item) => {
           items.push(<li>item</li>);
@@ -42,7 +41,6 @@ class App extends Component {
         this.setState({categories: items })
       })
       .catch(error => {
-        console.log("Error!");
         console.log(error);
       });
   }
