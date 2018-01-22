@@ -5,12 +5,12 @@ import axios from 'axios';
 const Category = (props) => {
     const data = "isLoading";
 
-    return (<li key={props.id}>{props.name}</li>);
+    return (<li>{props.name}</li>);
 }
 
 Category.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    // onclick: PropTypes.func.isRequired
 };
 
 export default Category;

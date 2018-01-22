@@ -31,7 +31,7 @@ class App extends Component {
     let items = [];
     res.data.categories.map((item) => {
       let obj = item.categories;
-      items.push(<Category id={obj.id} name={obj.name} />);
+      items.push(<Category key={obj.id.toString()} name={obj.name} />);
     });
     this.setState({categories: items })
 
