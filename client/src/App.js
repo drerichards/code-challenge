@@ -25,6 +25,16 @@ class App extends Component {
     this.getCategories();
   }
 
+  structureData(res) {
+    console.log('Found data...setting');
+    let items = [];
+    res.data.categories.map((item) => {
+      let obj = item.categories;
+      items.push(<li key={obj.id} >{obj.name}</li>);
+    });
+    this.setState({categories: items })
+
+  }
   getCategories() {
     axios
       .get(this.config.url.categories, {
@@ -33,12 +43,7 @@ class App extends Component {
         }
       })
       .then(res => {
-        console.log('Found data...setting');
-        let items = [];
-        res.data.categories.map( (item) => {
-          items.push(<li>item</li>);
-        });
-        this.setState({categories: items })
+        this.structureData(res);
       })
       .catch(error => {
         console.log(error);
