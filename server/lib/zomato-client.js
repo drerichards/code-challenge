@@ -58,4 +58,6 @@ Server.prototype.getRestaurants = function(category) {
 
 }
 
-module.exports = exports = new Server();
+var server = new Server();
+server.getCategories();
+// module.exports = exports = new Server();
