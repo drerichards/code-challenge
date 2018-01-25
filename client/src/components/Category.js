@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import Restaurant from './Restaurant';
 
 const Category = (props) => {
     const data = "isLoading";
@@ -10,8 +11,12 @@ const Category = (props) => {
 
 Category.propTypes = {
     name: PropTypes.string.isRequired,
-    restaurants: PropTypes.arrayOf(Restaurant).isRequired
+    restaurants: PropTypes.arrayOf(Restaurant)
     // onclick: PropTypes.func.isRequired
 };
+
+Category.defaultProps = {
+    restaurants: [new Restaurant(),]
+}
 
 export default Category;
