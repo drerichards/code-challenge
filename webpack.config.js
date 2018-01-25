@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
@@ -16,14 +17,12 @@ module.exports = {
 		}]
 	},
 	output: {
-		path: path.join(__dirname, '/build'),
-		filename: 'bundle.js'
+		path: path.join(__dirname, '/public'),
+		filename: 'js/bundle.js'
 	},
 	devServer: {
 		contentBase: path.join(__dirname, '/public'),
 		historyApiFallback: true,
-		hot: true,
-		inline: true,
 		port: 3000
 	}
 };
