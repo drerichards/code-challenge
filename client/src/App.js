@@ -20,7 +20,7 @@ class App extends Component {
     this.state = {
       categories: [],
     };
-    this.getRestaurants = this.getRestaurants.bind(this);
+    // this.getRestaurants = this.getRestaurants.bind(this);
   }
 
   componentDidMount() {
@@ -31,12 +31,13 @@ class App extends Component {
     // let items = [];
     // res.data.categories.map((item) => {
     //   let obj = item.categories;
-    //   items.push(<Category key={obj.id.toString()} name={obj.name} onClick={this.getRestaurants}/>);
+    //   items.push(<Category key={obj.id.toString()} name={obj.name} />);
     // });
     let items = res.data.categories.map((item) => {
       let obj = item.categories;
 
-      return <Category key={obj.id.toString()} name={obj.name} onClick={this.getRestaurants} />
+      // return <Category key={obj.id.toString()} name={obj.name} onClick={this.getRestaurants} />
+      return <Category key={obj.id.toString()} name={obj.name} id={obj.id}/>
     });
 
     this.setState({categories: items })
@@ -55,10 +56,6 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       });
-  }
-
-  getRestaurants() {
-    console.log('Getting restaurants...');
   }
 
   render() {
