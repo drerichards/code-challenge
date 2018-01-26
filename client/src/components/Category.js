@@ -19,7 +19,7 @@ class Category extends React.Component {
       request_type: "application/json"
     };
     this.name = props.name || "Loading...";
-    this.id = props.id;
+    this.id = props.id.toString();
     this.location_type = "zone";
     this.location_id = "94741";
     this.restaurants = null;
@@ -32,7 +32,7 @@ class Category extends React.Component {
     .get(this.config.url.restaurants, {
       headers: {
         "user-key" : this.config.user_key,
-        "category" : this.id.toString(),
+        "category" : this.id,
         "entity-id" : this.location_id,
         "entity-type" : this.location_type
       }
