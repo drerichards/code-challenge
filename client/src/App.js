@@ -20,6 +20,7 @@ class App extends Component {
     this.state = {
       categories: [],
     };
+    this.getRestaurants = this.getRestaurants.bind(this);
   }
 
   componentDidMount() {
@@ -27,15 +28,20 @@ class App extends Component {
   }
 
   structureData(res) {
-    console.log('Found data...setting');
-    let items = [];
-    res.data.categories.map((item) => {
+    // let items = [];
+    // res.data.categories.map((item) => {
+    //   let obj = item.categories;
+    //   items.push(<Category key={obj.id.toString()} name={obj.name} onClick={this.getRestaurants}/>);
+    // });
+    let items = res.data.categories.map((item) => {
       let obj = item.categories;
-      items.push(<Category key={obj.id.toString()} name={obj.name} />);
-    });
-    this.setState({categories: items })
 
+      return <Category key={obj.id.toString()} name={obj.name} onClick={this.getRestaurants} />
+    });
+
+    this.setState({categories: items })
   }
+
   getCategories() {
     axios
       .get(this.config.url.categories, {
@@ -49,6 +55,10 @@ class App extends Component {
       .catch(error => {
         console.log(error);
       });
+  }
+
+  getRestaurants() {
+    console.log('Getting restaurants...');
   }
 
   render() {

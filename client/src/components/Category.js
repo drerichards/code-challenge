@@ -3,20 +3,31 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Restaurant from './Restaurant';
 
-const Category = (props) => {
-    const data = "isLoading";
+class Category extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        data: []
+    }
+    this.name = props.name || "Loading...";
+  }
 
-    return (<li>{props.name}</li>);
+  // getRestaurants() {
+  //   console.log('Getting restaurants...');
+  // }
+
+  render() {
+    return (<li>{this.name}</li>);
+  }
 }
 
 Category.propTypes = {
-    name: PropTypes.string.isRequired,
-    restaurants: PropTypes.arrayOf(Restaurant)
-    // onclick: PropTypes.func.isRequired
+  name: PropTypes.string.isRequired,
+  restaurants: PropTypes.arrayOf(Restaurant)
 };
 
 Category.defaultProps = {
-    restaurants: [new Restaurant(),]
+    restaurants: []
 }
 
 export default Category;
