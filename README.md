@@ -4,7 +4,7 @@
 
 Home | Cuisines | Restaurants | Restaurant Details
 - | - | - | -
-![Home Page](wireframes/01_home.png) | ![Categories](wireframes/02_categories.png) | ![Restaurant](wireframes/03_restaurants.png) | ![Detail](wireframes/04_restaurant-detail.png)
+![Home Page](wireframes/01_home.PNG) | ![Categories](wireframes/02_categories.PNG) | ![Restaurant](wireframes/03_restaurants.PNG) | ![Detail](wireframes/04_restaurant-detail.PNG)
 
 *Goal is to complete the app in about 5 - 10 hours.*
 
