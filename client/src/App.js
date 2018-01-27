@@ -8,15 +8,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.items = [];
-    this.config = {
-      url: {
-        base: "https://developers.zomato.com/api/v2.1",
-        categories: "https://developers.zomato.com/api/v2.1/categories",
-        restaurants: "https://developers.zomato.com/api/v2.1/search"
-      },
-      user_key: "d2b02bc31ac7f50438898aa6eee10504",
-      request_type: "application/json"
-    };
     this.state = {
       categories: [],
     };
@@ -27,35 +18,23 @@ class App extends Component {
     this.getCategories();
   }
 
-  structureData(res) {
-    // let items = [];
-    // res.data.categories.map((item) => {
-    //   let obj = item.categories;
-    //   items.push(<Category key={obj.id.toString()} name={obj.name} />);
-    // });
-    let items = res.data.categories.map((item) => {
-      let obj = item.categories;
-
-      // return <Category key={obj.id.toString()} name={obj.name} onClick={this.getRestaurants} />
-      return <Category key={obj.id.toString()} name={obj.name} id={obj.id}/>
-    });
-
-    this.setState({categories: items })
-  }
-
   getCategories() {
-    axios
-      .get(this.config.url.categories, {
-        headers: {
-          'user-key' : this.config.user_key
-        }
+    console.log('Getting categories');
+
+    fetch('api/cuisines')
+      .then(resp => {
+        return resp.json()
       })
-      .then(res => {
-        this.structureData(res);
+      .then(cats => {
+        let items = cats.cuisines.map((item) => {
+          let obj = item.cuisine;
+          return <Category key={obj.id.toString()} name={obj.name} id={obj.id}/>
+        });
+
+        this.setState({
+          categories: items
+        });
       })
-      .catch(error => {
-        console.log(error);
-      });
   }
 
   render() {

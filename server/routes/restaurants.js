@@ -12,7 +12,7 @@ router.get('/', (request, result, next) => {
   const location = '94741';
   const location_type = 'zone';
   const sort = "asc";
-  const category = 11;
+  const cuisine_id = request.headers.cuisine;
 
   axios
     .get(url, {
@@ -22,7 +22,7 @@ router.get('/', (request, result, next) => {
       params: {
         entity_type: location_type,
         entity_id: location,
-        category: category,
+        cuisines: cuisine_id,
         order: sort
       }
     })

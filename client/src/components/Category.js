@@ -14,7 +14,7 @@ class Category extends React.Component {
     this.config = {
       url: {
         base: "https://developers.zomato.com/api/v2.1",
-        categories: "https://developers.zomato.com/api/v2.1/categories",
+        categories: "https://developers.zomato.com/api/v2.1/cuisines",
         restaurants: "https://developers.zomato.com/api/v2.1/search"
       },
       user_key: "d2b02bc31ac7f50438898aa6eee10504",
@@ -24,6 +24,7 @@ class Category extends React.Component {
     this.id = props.id.toString();
     this.location_type = "zone";
     this.location_id = "94741";
+    this.city_id = 280;
     this.getRestaurants = this.getRestaurants.bind(this);
     this.showRestaurants = this.showRestaurants.bind(this);
   }
@@ -31,7 +32,13 @@ class Category extends React.Component {
   getRestaurants() {
     console.log('Getting restaurants...');
 
-    fetch('/api/restaurants')
+    const opts = {
+      headers: new Headers({
+        category: this.id
+      })
+    };
+
+    fetch('/api/restaurants', opts)
       .then(resp => {
         return resp.json();
       })
