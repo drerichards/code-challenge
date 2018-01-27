@@ -34,7 +34,7 @@ class Category extends React.Component {
 
     const opts = {
       headers: new Headers({
-        category: this.id
+        cuisine: this.id
       })
     };
 

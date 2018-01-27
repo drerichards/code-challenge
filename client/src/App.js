@@ -25,10 +25,10 @@ class App extends Component {
       .then(resp => {
         return resp.json()
       })
-      .then(cats => {
-        let items = cats.cuisines.map((item) => {
+      .then(data => {
+        let items = data.cuisines.map((item) => {
           let obj = item.cuisine;
-          return <Category key={obj.id.toString()} name={obj.name} id={obj.id}/>
+          return <Category key={obj.cuisine_id.toString()} name={obj.cuisine_name} id={obj.cuisine_id}/>
         });
 
         this.setState({
