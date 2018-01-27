@@ -7,7 +7,9 @@ class Category extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        data: []
+      isLoaded: false,
+      data: [],
+      restaurants: []
     }
     this.config = {
       url: {
@@ -22,41 +24,56 @@ class Category extends React.Component {
     this.id = props.id.toString();
     this.location_type = "zone";
     this.location_id = "94741";
-    this.restaurants = null;
     this.getRestaurants = this.getRestaurants.bind(this);
+    this.showRestaurants = this.showRestaurants.bind(this);
   }
 
   getRestaurants() {
     console.log('Getting restaurants...');
 
     fetch('/api/restaurants')
-      .then(results => {
-        return results.json();
+      .then(resp => {
+        return resp.json();
       })
-      .then(data => {
-        this.restaurants = data.results.map(res => {
+      .then(obj => {
+        let rests = obj.restaurants.map(data => {
+          let res = data.restaurant;
           return(
             <li key={res.id}>
-              {res.name}
+              <Restaurant {...res}/>
             </li>
-          )
-        })
+          );
+        });
+
+        this.setState({
+          isLoaded : true,
+          restaurants: rests
+        });
       })
       .catch(err => {
         console.log(`Error occurred: ${err}`);
       });
   }
 
+  showRestaurants() {
+    console.log('Start showing restaurants');
+  }
+
   componentDidMount() {
     this.getRestaurants();
+    console.log(this.state.restaurants);
   }
 
   render() {
+    const content = !this.state.isLoaded 
+      ? 'Loading...'
+      : this.state.restaurants;
+
     return (
-      <li onClick={this.getRestaurants} >
+      <li onClick={this.showRestaurants} >
         {this.name}
-        <ul>
-          {this.restaurants}
+        <ul className="">
+          { content }
         </ul>
       </li>);
   }

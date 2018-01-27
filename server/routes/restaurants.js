@@ -27,8 +27,9 @@ router.get('/', (request, result, next) => {
       }
     })
     .then(res => {
-      console.log(res.data);
+      console.log(res);
       result.send(res.data);
+      // result.status(200).send(res.data);
     })
     .catch(error => {
       console.log("Error!");

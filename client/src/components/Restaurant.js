@@ -10,6 +10,7 @@ class Restaurant extends React.Component {
     }
     this.isLoading = true;
     this.data = [];
+    this.address = this.props.location.address;
   }
 
   render() {
@@ -27,13 +28,13 @@ class Restaurant extends React.Component {
 Restaurant.propTypes = {
   name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  price_range: PropTypes.string.isRequired,
-  average_cost_for_two: PropTypes.string.isRequired,
-  user_rating: PropTypes.string.isRequired,
-  has_online_delivery: PropTypes.string.isRequired,
-  is_delivering_now: PropTypes.string.isRequired,
+  // city: PropTypes.string.isRequired,
+  // address: PropTypes.string.isRequired,
+  price_range: PropTypes.number.isRequired,
+  average_cost_for_two: PropTypes.number.isRequired,
+  user_rating: PropTypes.object.isRequired,
+  has_online_delivery: PropTypes.number.isRequired,
+  is_delivering_now: PropTypes.number.isRequired,
 }
 
 export default Restaurant;
