@@ -1,55 +1,60 @@
-import React from 'react'
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
+import HomePage from './pages/01_Home';
+import CategoryPage from './pages/02_Category';
+import RestaurantPage from './pages/03_Restaurants';
+import DetailPage from './pages/04_Detail';
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-)
+// const Home = () => (
+//   <div>
+//     <h2>Home</h2>
+//   </div>
+// )
 
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-)
+// const About = () => (
+//   <div>
+//     <h2>About</h2>
+//   </div>
+// )
 
-const Topics = ({ match }) => (
-  <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>
-          Rendering with React
-        </Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>
-          Components
-        </Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>
-          Props v. State
-        </Link>
-      </li>
-    </ul>
+// const Topic = ({ match }) => (
+//   <div>
+//     <h3>{match.params.topicId}</h3>
+//   </div>
+// )
 
-    <Route path={`${match.url}/:topicId`} component={Topic}/>
-    <Route exact path={match.url} render={() => (
-      <h3>Please select a topic.</h3>
-    )}/>
-  </div>
-)
+// const Topics = ({ match }) => (
+//   <div>
+//     <h2>Topics</h2>
+//     <ul>
+//       <li>
+//         <Link to={`${match.url}/rendering`}>
+//           Rendering with React
+//         </Link>
+//       </li>
+//       <li>
+//         <Link to={`${match.url}/components`}>
+//           Components
+//         </Link>
+//       </li>
+//       <li>
+//         <Link to={`${match.url}/props-v-state`}>
+//           Props v. State
+//         </Link>
+//       </li>
+//     </ul>
+
+//     <Route path={`${match.url}/:topicId`} component={Topic}/>
+//     <Route exact path={match.url} render={() => (
+//       <h3>Please select a topic.</h3>
+//     )}/>
+//   </div>
+// )
 
 const BasicExample = () => (
   <Router>
@@ -62,9 +67,9 @@ const BasicExample = () => (
 
       <hr/>
 
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-      <Route path="/topics" component={Topics}/>
+      <Route exact path="/" component={HomePage}/>
+      <Route path="/about" component={CategoryPage}/>
+      <Route path="/topics" component={RestaurantPage}/>
     </div>
   </Router>
 )

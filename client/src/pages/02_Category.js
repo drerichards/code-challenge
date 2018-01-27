@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
-import './App.css';
-import Category from './components/Category';
+import logo from '../logo.svg';
+import '../App.css';
+import Category from '../components/Category';
 
 class CategoryPage extends Component {
   constructor(props) {
