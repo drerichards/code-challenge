@@ -41,7 +41,8 @@ class Restaurant extends React.Component {
 
   toggleMoreInfo(e) {
     e.preventDefault();
-    console.log("this should show more info");
+    e.stopPropagation();
+    console.log("toggling restaurant details");
     let expand = !this.state.showExpanded;
     let newContent = expand ? this.expandedContent : this.minimalContent;
 

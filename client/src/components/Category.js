@@ -8,13 +8,15 @@ class Category extends React.Component {
     super(props);
     this.state = {
       isLoaded: false,
-      data: [],
-      restaurants: []
+      showRestaurants: false,
+      data: null,
+      restaurants: null
+      
     }
     this.name = this.props.name;
     this.id = this.props.id;
     this.getRestaurants = this.getRestaurants.bind(this);
-    this.showRestaurants = this.showRestaurants.bind(this);
+    this.toggleRestaurants = this.toggleRestaurants.bind(this);
   }
 
   getRestaurants() {
@@ -54,28 +56,32 @@ class Category extends React.Component {
       });
   }
 
-  showRestaurants(e) {
+  toggleRestaurants(e) {
     e.preventDefault();
-    console.log('Start showing restaurants');
-    this.getRestaurants();
-  }
+    console.log('toggling category details');
+    if(this.state.restaurants === null)
+      this.getRestaurants();
 
-  // wait until clicked to load restaurants
-  // componentDidMount() {
-  //   this.getRestaurants();
-  //   console.log(this.state.restaurants);
-  // }
+    let show = !this.state.showRestaurants;
+    let newData = show ? '' : this.state.restaurants;
+
+    this.setState({
+      showRestaurants: show,
+      data: newData
+    });
+  }
 
   render() {
     const content = !this.state.isLoaded 
       ? <p/>
-      : <ul>{this.state.restaurants}</ul>
+      : <ul>{this.state.data}</ul>
 
     return (
-      <li onClick={this.showRestaurants} >
+      <li onClick={this.toggleRestaurants} >
         <p>{this.name}</p>
         <div>{ content }</div>
-      </li>);
+      </li>
+    );
   }
 }
 
