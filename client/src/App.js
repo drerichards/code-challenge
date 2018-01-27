@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       categories: [],
     };
-    // this.getRestaurants = this.getRestaurants.bind(this);
+    this.getCategories
   }
 
   componentDidMount() {
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   getCategories() {
-    console.log('Getting categories');
+    console.log('Getting cuisine types');
 
     fetch('api/cuisines')
       .then(resp => {

@@ -24,7 +24,7 @@ class Restaurant extends React.Component {
     this.setState({
       data: this.showExpanded ? this.expandedContent : this.minimalContent,
       isLoaded: true
-    })
+    });
   }
 
   initialize() {
@@ -62,8 +62,6 @@ class Restaurant extends React.Component {
 Restaurant.propTypes = {
   name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  // city: PropTypes.string.isRequired,
-  // address: PropTypes.string.isRequired,
   price_range: PropTypes.number.isRequired,
   average_cost_for_two: PropTypes.number.isRequired,
   user_rating: PropTypes.object.isRequired,
