@@ -2,6 +2,10 @@
 
 ## Summary Of Work
 
+Home | Cuisines | Restaurants | Restaurant Details
+- | - | - | -
+![Home Page](wireframes/01_home.png) | ![Categories](wireframes/02_categories.png) | ![Restaurant](wireframes/03_restaurants.png) | ![Detail](wireframes/04_restaurant-detail.png)
+
 *Goal is to complete the app in about 5 - 10 hours.*
 
 Realistically though it'll probably take about 10 to 20 since I'm unfamiliar with their API and how I should present it on the front end.
@@ -13,6 +17,8 @@ This seems to be **CATEGORIES** and then **RESTAURANTS**. Based on the API docum
 *Then I'll get information and order it in the most accessible way*
 
 *Once that's done I can work on presenting it in a more aesthethically pleasing way.*
+
+Should look like below
 
 ## Initial Thoughts & Plans
 
