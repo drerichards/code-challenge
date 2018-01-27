@@ -55,7 +55,8 @@ class Category extends React.Component {
       });
   }
 
-  showRestaurants() {
+  showRestaurants(e) {
+    e.preventDefault();
     console.log('Start showing restaurants');
   }
 

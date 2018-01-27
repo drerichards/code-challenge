@@ -5,12 +5,22 @@ class Restaurant extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      isLoading: true,
+      isLoading: false,
       data: [],
     }
-    this.isLoading = true;
-    this.data = [];
+
     this.address = this.props.location.address;
+  }
+
+  componentDidMount() {
+    this.setState({
+      data: <li onClick={this.toggleMoreInfo}>{this.props.name}</li>
+    })
+  }
+
+  toggleMoreInfo(e) {
+    e.preventDefault();
+    console.log("this should show more info")
   }
 
   render() {
