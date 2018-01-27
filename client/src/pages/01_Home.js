@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter, Route, Link } from 'react-router-dom';
+import CategoryPage from './02_Category';
 
 const Home = props => (
   <div className="app">
@@ -15,10 +17,13 @@ const Home = props => (
         show you what's available
       </div>
       <div className="page__action button__nom">
-        NOM NOW!!
+        <div>
+          <Link to="/about">NOM NOW!!</Link>
+          {/* <Route path='/about' component={CategoryPage}/> */}
+        </div>
       </div>
     </div>
   </div>
 )
 
-export default Home;
+export default withRouter(Home);

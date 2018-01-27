@@ -3,6 +3,8 @@ import axios from 'axios';
 import logo from '../logo.svg';
 import '../App.css';
 import Category from '../components/Category';
+import HomePage from './01_Home';
+import { Link, withRouter, Route } from 'react-router-dom';
 
 class CategoryPage extends Component {
   constructor(props) {
@@ -41,13 +43,15 @@ class CategoryPage extends Component {
     return (
       <div>
         <div>
+          Categories down here!
           <ul>
             { this.state.categories }
           </ul>
+          <Link to="/"> Back </Link>
         </div>
       </div>
     );
   }
 }
 
-export default CategoryPage;
+export default withRouter(CategoryPage);
