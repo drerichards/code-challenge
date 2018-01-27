@@ -8,7 +8,7 @@ class Restaurant extends React.Component {
     this.state = {
       isLoaded: false,
       showExpanded: false,
-      data: [],
+      data: null,
     }
     this.minimalContent = null;
     this.expandedContent = null;
@@ -22,7 +22,7 @@ class Restaurant extends React.Component {
 
   componentDidMount() {
     this.setState({
-      data: this.showExpanded ? this.expandedContent : this.minimalContent,
+      data: this.state.showExpanded ? this.expandedContent : this.minimalContent,
       isLoaded: true
     });
   }
@@ -41,14 +41,18 @@ class Restaurant extends React.Component {
 
   toggleMoreInfo(e) {
     e.preventDefault();
-    console.log("this should show more info")
+    console.log("this should show more info");
+    let expand = !this.state.showExpanded;
+    let newContent = expand ? this.expandedContent : this.minimalContent;
+
     this.setState({
-      showExpanded : !this.showExpanded
-    })
+      showExpanded : expand,
+      data: newContent
+    });
   }
 
   render() {
-    const content = this.state.isLoading 
+    const content = !this.state.isLoaded 
         ? 'Loading...' 
         : this.state.data;
     return (

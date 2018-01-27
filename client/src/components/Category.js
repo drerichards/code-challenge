@@ -11,6 +11,8 @@ class Category extends React.Component {
       data: [],
       restaurants: []
     }
+    this.name = this.props.name;
+    this.id = this.props.id;
     this.getRestaurants = this.getRestaurants.bind(this);
     this.showRestaurants = this.showRestaurants.bind(this);
   }
@@ -24,12 +26,16 @@ class Category extends React.Component {
       })
     };
 
+    let data;
+
     fetch('/api/restaurants', opts)
       .then(resp => {
         return resp.json();
       })
       .then(obj => {
-        let rests = obj.restaurants.map(data => {
+        data =  obj.restaurants.length < 1 
+        ? <li key={0}>`No restaurants available right now`</li>
+        : obj.restaurants.map(data => {
           let res = data.restaurant;
           return(
             <li key={res.id}>
@@ -40,7 +46,7 @@ class Category extends React.Component {
 
         this.setState({
           isLoaded : true,
-          restaurants: rests
+          restaurants: data
         });
       })
       .catch(err => {
@@ -51,24 +57,24 @@ class Category extends React.Component {
   showRestaurants(e) {
     e.preventDefault();
     console.log('Start showing restaurants');
+    this.getRestaurants();
   }
 
-  componentDidMount() {
-    this.getRestaurants();
-    console.log(this.state.restaurants);
-  }
+  // wait until clicked to load restaurants
+  // componentDidMount() {
+  //   this.getRestaurants();
+  //   console.log(this.state.restaurants);
+  // }
 
   render() {
     const content = !this.state.isLoaded 
-      ? 'Loading...'
-      : this.state.restaurants;
+      ? <p/>
+      : <ul>{this.state.restaurants}</ul>
 
     return (
       <li onClick={this.showRestaurants} >
-        {this.name}
-        <ul className="">
-          { content }
-        </ul>
+        <p>{this.name}</p>
+        <div>{ content }</div>
       </li>);
   }
 }
