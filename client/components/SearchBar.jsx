@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import restaurantsThunk from '../redux';
+import { restaurantsThunk } from '../redux';
 
 class SearchBar extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class SearchBar extends Component {
   }
 
   handleClick(){
-
+    this.props.restaurantsThunk();
   }
   render() {
     return (

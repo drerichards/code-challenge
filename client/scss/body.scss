@@ -12,3 +12,21 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.restaurant-list{
+    display: flex;
+    margin-bottom: 1%;
+    .restaurant-list-thumb{
+        width: 30%;
+        margin-right: 2%;
+    }
+}
+
+.reviews{
+    display: flex;
+    margin-bottom: 1%;
+    .reviews-image{
+        max-width: 7%;
+        margin-right: 4%;
+    }
+}
