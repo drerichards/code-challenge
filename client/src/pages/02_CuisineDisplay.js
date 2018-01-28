@@ -42,10 +42,13 @@ class CategoryPage extends Component {
         console.log('Error getting types - supplying fakes');
         let fakes = [
           <Link to={{
-            pathname: `${this.props.match.url}/0`,
+            pathname: `${this.props.match.url}/${obj.cuisine_name}`,
             state: {
               hasObj: true,
-              obj: <Category key={0} name="Armenian" id={0} />
+              objectData: {
+                name: obj.cuisine_name,
+                id: obj.cuisine_id
+              }
             }
           }}>
             <Category key={0} name="Armenian" id={0} />
