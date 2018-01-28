@@ -1,9 +1,13 @@
-import React,{ Component } from 'react';
-import ReactDOM, { render } from "react-dom";
+import React, { Component } from 'react';
+import ReactDOM, { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import Routes from './routes';
-import "./scss/index.scss";
+import store from './redux';
+import './scss/index.scss';
 
 render(
-    <Routes />,
-    document.getElementById('app')
+  <Provider store={store}>
+    <Routes />
+  </Provider>,
+  document.getElementById('app'),
 );

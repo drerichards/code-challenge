@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
-import { Router } from "react-router";
-import { Route, Switch } from "react-router-dom";
-import history from "./history";
-import { Home } from './Components';
+import React, { Component, Fragment } from 'react';
+import { Router } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
+import history from './history';
+import { Home, NavBar } from './components';
 
 export default class Routes extends Component {
   componentDidMount() {
@@ -11,8 +11,9 @@ export default class Routes extends Component {
     return (
       <Router history={history}>
         <Fragment>
-          {/* <NavBar /> */}
+          <NavBar />
           <Switch>
+            {/* <Route path="/test" component={NavBar} /> */}
             <Route component={Home} />
           </Switch>
         </Fragment>

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build-client": "webpack",
-    "build-client-watch": "webpack -w",
+    "build-client-watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "start-dev": "webpack -w & node server"
+    "start-dev": "npm run build-client-watch & nodemon server"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "bulma": "^0.6.2",
     "css-loader": "^0.28.9",
     "express": "^4.16.2",
     "history": "^4.7.2",
@@ -34,7 +36,13 @@
     "nodemon": "^1.14.11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1"
   }
