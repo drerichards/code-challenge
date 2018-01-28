@@ -1,0 +1,19 @@
+<h1>Seach Restaurant</h1>
+
+<%= form_for :search, url: search_restaurants_path do |f| %>
+  <%= f.text_field :term %>
+  <%= f.submit "Search Restaurants" %>
+<% end %>
+
+
+<% @results.each do |result| %>
+<div>
+  <h3><%= result[:name] %></h3>
+  <%= image_tag result[:image] %>
+  <%= form_for :restaurant, url: restaurants_path do |f| %>
+    <%= f.hidden_field :name, value: result[:name] %>
+    <%= f.hidden_field :image, value: result[:image] %>
+    <%= f.submit "Save Restaurant" %>
+  <% end%>
+</div>
+<% end %>
