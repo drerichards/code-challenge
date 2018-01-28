@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Route, Link } from 'react-router-dom';
-import CategoryPage from './02_Category';
+import CategoryPage from './02_CuisineDisplay';
 
 const Home = props => (
   <div className="app">

@@ -6,9 +6,9 @@ import {
 } from 'react-router-dom';
 
 import HomePage from './pages/01_Home';
-import CategoryPage from './pages/02_Category';
-import RestaurantPage from './pages/03_Restaurants';
-import DetailPage from './pages/04_Detail';
+import CategoryPage from './pages/02_CuisineDisplay';
+import RestaurantPage from './pages/03_RestaurantDisplay';
+import DetailPage from './pages/04_RestaurantDetailDisplay';
 
 const App = () => (
   <Router>

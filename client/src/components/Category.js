@@ -1,99 +1,113 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import {Link, withRouter} from 'react-router-dom';
 import Restaurant from './Restaurant';
 
-class Category extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoaded: false,
-      showRestaurants: false,
-      data: null,
-      restaurants: null
-      
+const Cuisine = props => (
+  <Link to={{
+    pathname: `${props.match.url}/${props.cuisine_name}`,
+    state: {
+      cuisine_name: props.cuisine_name,
+      cuisine_id: props.cuisine_id
     }
-    this.name = this.props.name;
-    this.id = this.props.id;
-    this.getRestaurants = this.getRestaurants.bind(this);
-    this.toggleRestaurants = this.toggleRestaurants.bind(this);
-  }
+  }}>
+    { props.cuisine_name }
+  </Link>
+);
 
-  getRestaurants() {
-    console.log('Getting restaurants...');
+export default withRouter(Cuisine);
 
-    const opts = {
-      headers: new Headers({
-        cuisine: this.id
-      })
-    };
+// class Category extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isLoaded: false,
+//       showRestaurants: false,
+//       data: null,
+//       restaurants: null
+      
+//     }
+//     this.name = this.props.name;
+//     this.id = this.props.id;
+//     this.getRestaurants = this.getRestaurants.bind(this);
+//     this.toggleRestaurants = this.toggleRestaurants.bind(this);
+//   }
 
-    let data;
+//   getRestaurants() {
+//     console.log('Getting restaurants...');
 
-    fetch('/api/restaurants', opts)
-      .then(resp => {
-        return resp.json();
-      })
-      .then(obj => {
-        data =  obj.restaurants.length < 1 
-        ? <li key={0}>`No restaurants available right now`</li>
-        : obj.restaurants.map(data => {
-          let res = data.restaurant;
-          return(
-            <li key={res.id}>
-              <Restaurant {...res}/>
-            </li>
-          );
-        });
+//     const opts = {
+//       headers: new Headers({
+//         cuisine: this.id
+//       })
+//     };
 
-        this.setState({
-          isLoaded : true,
-          restaurants: data
-        });
-      })
-      .catch(err => {
-        console.log(`Error occurred: ${err}`);
-      });
-  }
+//     let data;
 
-  toggleRestaurants(e) {
-    e.preventDefault();
-    console.log('toggling category details');
-    if(this.state.restaurants === null)
-      this.getRestaurants();
+//     fetch('/api/restaurants', opts)
+//       .then(resp => {
+//         return resp.json();
+//       })
+//       .then(obj => {
+//         data =  obj.restaurants.length < 1 
+//         ? <li key={0}>`No restaurants available right now`</li>
+//         : obj.restaurants.map(data => {
+//           let res = data.restaurant;
+//           return(
+//             <li key={res.id}>
+//               <Restaurant {...res}/>
+//             </li>
+//           );
+//         });
 
-    let show = !this.state.showRestaurants;
-    let newData = show ? '' : this.state.restaurants;
+//         this.setState({
+//           isLoaded : true,
+//           restaurants: data
+//         });
+//       })
+//       .catch(err => {
+//         console.log(`Error occurred: ${err}`);
+//       });
+//   }
 
-    this.setState({
-      showRestaurants: show,
-      data: newData
-    });
-  }
+//   toggleRestaurants(e) {
+//     e.preventDefault();
+//     console.log('toggling category details');
+//     if(this.state.restaurants === null)
+//       this.getRestaurants();
 
-  render() {
-    const content = !this.state.isLoaded 
-      ? <p/>
-      : <ul>{this.state.data}</ul>
+//     let show = !this.state.showRestaurants;
+//     let newData = show ? '' : this.state.restaurants;
 
-    return (
-      // <li onClick={this.toggleRestaurants} >
-      <li>
-        <p>{this.name}</p>
-        <div>{ content }</div>
-      </li>
-    );
-  }
-}
+//     this.setState({
+//       showRestaurants: show,
+//       data: newData
+//     });
+//   }
 
-Category.propTypes = {
-  name: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  restaurants: PropTypes.arrayOf(Restaurant),
-};
+//   render() {
+//     const content = !this.state.isLoaded 
+//       ? <p/>
+//       : <ul>{this.state.data}</ul>
 
-Category.defaultProps = {
-  restaurants: []
-}
+//     return (
+//       // <li onClick={this.toggleRestaurants} >
+//       <li>
+//         <p>{this.name}</p>
+//         <div>{ content }</div>
+//       </li>
+//     );
+//   }
+// }
 
-export default Category;
+// Category.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   id: PropTypes.number.isRequired,
+//   restaurants: PropTypes.arrayOf(Restaurant),
+// };
+
+// Category.defaultProps = {
+//   restaurants: []
+// }
+
+// export default Category;

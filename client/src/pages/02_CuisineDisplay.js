@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter, Route } from 'react-router-dom';
-import RestaurantList from './03_Restaurants';
+import RestaurantList from './03_RestaurantDisplay';
 import Category from '../components/Category';
 import Page from './Page';
 
@@ -29,37 +29,19 @@ class CategoryPage extends Component {
         return resp.json()
       })
       .then(data => {
-        let items = data.cuisines.map((item) => {
+        let items = data.cuisines.map(item => {
           let obj = item.cuisine;
-          return <Category key={obj.cuisine_id.toString()} name={obj.cuisine_name} id={obj.cuisine_id}/>
+          return <li key={obj.cuisine_id}><Category {...obj}/></li>
         });
 
+        let content = <ul>{items}</ul>;
+
         this.setState({
-          categories: items
+          categories: content
         });
       })
       .catch(err => {
-        console.log('Error getting types - supplying fakes');
-        let fakes = [
-          <Link to={{
-            pathname: `${this.props.match.url}/${obj.cuisine_name}`,
-            state: {
-              hasObj: true,
-              objectData: {
-                name: obj.cuisine_name,
-                id: obj.cuisine_id
-              }
-            }
-          }}>
-            <Category key={0} name="Armenian" id={0} />
-          </Link>,
-          <Category key={1} name="American" id={1} />,
-          <Category key={2} name="African" id={2} />,
-        ]
-
-        this.setState({
-          categories: fakes
-        });
+        console.log(`Error getting types ${err}`);
       });
   }
 
