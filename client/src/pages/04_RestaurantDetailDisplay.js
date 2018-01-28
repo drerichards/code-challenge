@@ -9,12 +9,12 @@ class DetailPage extends React.Component {
     this.state = {
       content: null
     };
-    this.restaurantName = this.props.name;
-    this.info = this.props.info;
+    this.data = this.props.location.state;
+    this.restaurantName = this.data.name;
   }
 
   componentDidMount() {
-    const data = <Detail {...this.info} />;
+    const data = <Detail {...this.data} />;
     this.setState({
       content: data
     });

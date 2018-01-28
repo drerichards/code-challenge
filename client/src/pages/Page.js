@@ -6,6 +6,12 @@ class Page extends React.Component{
     super(props);
     this.state = {};
     this.name = this.props.name;
+    this.backOnePage = this.backOnePage.bind(this);
+  }
+
+  backOnePage(e) {
+    e.preventDefault();
+    this.props.history.goBack();
   }
   
   render() {
@@ -14,7 +20,7 @@ class Page extends React.Component{
         <div className={`logo-container ${this.name}-color`}></div>
         <div className={`${this.name}-color`}>{this.name}</div>
         <div className={`${this.name}-color back-container`}>
-          <Link to="/">BACK</Link>
+          <span onClick={this.backOnePage}>BACK</span>
         </div>
         <div className={`${this.name}-color`}>
           {this.props.content}

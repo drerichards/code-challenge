@@ -10,8 +10,8 @@ class RestaurantListPage extends React.Component {
       isLoaded: false,
       restaurants: null
     };
-    this.cuisineType = this.props.name;
-    this.categoryData = this.props.location.state.category;
+    this.cuis_name = this.props.location.state.cuisine_name;
+    this.cuis_id = this.props.location.state.cuisine_id;
     this.getRestaurants = this.getRestaurants.bind(this);
   }
 
@@ -26,7 +26,7 @@ class RestaurantListPage extends React.Component {
 
     const opts = {
       headers: new Headers({
-        cuisine: this.id
+        cuisine: this.cuis_id
       })
     };
 
@@ -55,9 +55,11 @@ class RestaurantListPage extends React.Component {
             );
           });
 
+        const items = <ul>{data}</ul>
+
         this.setState({
           isLoaded : true,
-          restaurants: data
+          restaurants: items
         });
       })
       .catch(err => {
@@ -67,8 +69,7 @@ class RestaurantListPage extends React.Component {
 
   render() {
     return(
-      // <Page name={this.cuisineType} content={this.state.restaurants} />
-      <Page name={this.cuisineType} />
+      <Page name={this.cuis_name} content={this.state.restaurants} />
     )
   }
 }
