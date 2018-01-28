@@ -1,8 +1,8 @@
 import React from 'react';
 
-const About = () => (
+const About = ({match}) => (
   <div>
-    <h2>About</h2>
+    <h2>{match.params.categoryid}</h2>
   </div>
 );
 

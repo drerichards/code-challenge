@@ -18,8 +18,7 @@ const Home = props => (
       </div>
       <div className="page__action button__nom">
         <div>
-          <Link to="/about">NOM NOW!!</Link>
-          {/* <Route path='/about' component={CategoryPage}/> */}
+          <Link to="/cuisines">NOM NOW!!</Link>
         </div>
       </div>
     </div>

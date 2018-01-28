@@ -77,7 +77,8 @@ class Category extends React.Component {
       : <ul>{this.state.data}</ul>
 
     return (
-      <li onClick={this.toggleRestaurants} >
+      // <li onClick={this.toggleRestaurants} >
+      <li>
         <p>{this.name}</p>
         <div>{ content }</div>
       </li>
