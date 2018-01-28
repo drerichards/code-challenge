@@ -4,7 +4,6 @@ import RestaurantList from './03_Restaurants';
 import Category from '../components/Category';
 import Page from './Page';
 
-
 class CategoryPage extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +41,13 @@ class CategoryPage extends Component {
       .catch(err => {
         console.log('Error getting types - supplying fakes');
         let fakes = [
-          <Link to={`${this.props.match.url}/:0`}>
+          <Link to={{
+            pathname: `${this.props.match.url}/0`,
+            state: {
+              hasObj: true,
+              obj: <Category key={0} name="Armenian" id={0} />
+            }
+          }}>
             <Category key={0} name="Armenian" id={0} />
           </Link>,
           <Category key={1} name="American" id={1} />,
@@ -57,10 +62,7 @@ class CategoryPage extends Component {
 
   render() {
     return (
-      <div> 
-        <Page name="Cuisines" content={this.state.categories} />
-        
-      </div>
+      <Page name="Cuisines" content={this.state.categories} />
     );
   }
 }

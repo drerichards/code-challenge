@@ -15,7 +15,7 @@ const App = () => (
     <div>
       <Route exact path="/" component={HomePage}/>
       <Route exact path="/cuisines" component={CategoryPage}/>
-      <Route path="/cuisines/:categoryid" component={RestaurantPage}/>
+      <Route path="/cuisines/:categoryid" render={routeProps => <RestaurantPage {...routeProps} /> }/>
     </div>
   </Router>
 )
