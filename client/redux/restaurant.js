@@ -25,7 +25,6 @@ export const restaurantsThunk = (search, location) =>
   (dispatch) => {
     axios.get(`https://developers.zomato.com/api/v2.1/search?q=${search.query}&count=7&lat=${location.latitude}&lon=${location.longitude}&sort=real_distance`, { headers: { 'user-key': zomato } })
       .then((res) => {
-        console.log(res.data);
         dispatch(getRestaurants(res.data.restaurants));
       })
       .then(() => history.push('/search'))

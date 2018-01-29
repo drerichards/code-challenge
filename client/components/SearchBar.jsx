@@ -27,7 +27,6 @@ class SearchBar extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="field is-grouped">
         <div className="control">

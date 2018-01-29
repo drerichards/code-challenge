@@ -1,20 +1,21 @@
-const path = require("path");
-const express = require("express");
+const path = require('path');
+const express = require('express');
+
 const app = express();
 const PORT = 3000;
 
 // you'll of course want static middleware so your browser can request things like your 'bundle.js'
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Any routes or other various middlewares should go here!
 
 // Make sure this is right at the end of your server logic!
 // The only thing after this might be a piece of middleware to serve up 500 errors for server problems
 // (However, if you have middleware to serve up 404s, that go would before this as well)
-app.get("*", function(req, res, next) {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.listen(PORT, () => {
-  console.log("Listening on port 3000...");
+  console.log('Listening on port 3000...');
 });

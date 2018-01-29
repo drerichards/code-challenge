@@ -1,13 +1,12 @@
-# BuildNG
-## Pre-interview Technical Challenge 
-### **Repository push access will close after 11:59pm Jan 28**
+
 
 * [A development challenge](#the-challenge)
 * [A few technical questions](#technical-questions)
 
-#### Extra credit
-- include tests
-- implement a search/filter for users to narrow down the results your app returns
+### Start
+* npm install
+* npm run start-dev
+* goto localhost:3000
 
 ### User Story
 
@@ -24,7 +23,7 @@ So that **I can view details about the restaurant**
 Please include answers to the following questions in your `APP_README.md` markdown file.
 
 1. How long did you spend on this technical challenge? What would you add to your solution if you had more time?
-4-5 hrs. Would let the user search by city and I would also make application more user responsive. Lastly add a backend since and parse the data on the backend so the user can have their page load quicker.
+4-5 hrs. Would let the user search by city and I would also make application more user responsive. Lastly add a backend since and parse the data on the backend so the user can have their page load quicker. Redux was not needed/ it was over kill for the project but I wanted to practice. 
 
 2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 Of the ES8 features. Object.values is useful. 
