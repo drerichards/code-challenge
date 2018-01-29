@@ -29,7 +29,7 @@ export default class App extends Component {
     }
     displayApp() {
         if (this.state.btnPressed)
-            return <DinnerList repos={this.state.restaurant}/>
+            return <DinnerList restaurant={this.state.restaurant}/>
         else
             return <button onClick={this.getRestaurant.bind(this)}>Get
                 restaurant</button>
