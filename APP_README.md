@@ -1,8 +1,8 @@
-1.
-2.
-3.
+Time spent: Less than 2 Hours, Didn't use Create React App - I scaffolded from scratch. I wanted to have tests, a better UI (semantic-ui), be more fleshed out 
+The biggest feature is the inclusion of aysnc/await to handle the Zomato API
+Preformance Tracking: Currently doing with Zulip - using react-addons-perf and Travis CI 
 4.
- 5 JSON 
+ JSON Blob
 ------
 ```
 {
