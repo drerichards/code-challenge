@@ -2,7 +2,7 @@ jQuery(function () {
 	$('#in_cuisine').prop('disabled', true);
 	$('#in_submit').prop('disabled', true);
 	$('#in_city').focus();
-	var coordinates;
+	var coordinates,city,cuisines;
 	var populateCuisines = function() {
 		$.ajax({
 		  type: 'GET',
@@ -20,7 +20,8 @@ jQuery(function () {
 			    .find('option')
 			    .remove()
 			    .end();
-			    console.log(data);
+			    
+			    cuisines = data.cuisines;
 
 		  		$.each(data.cuisines, function(index, value) {
 		  			$('#in_cuisine').append('<option value="'+value.cuisine.cuisine_id+'">'+value.cuisine.cuisine_name+'</option>');
@@ -58,9 +59,9 @@ jQuery(function () {
 		minLength: 3,
 		select: function (event, ui) {
 		 var selectedObj = ui.item;
-
+		 city
 		 jQuery("#in_city").val(selectedObj.value);
-		getcitydetails(selectedObj.value);
+		 getcitydetails(selectedObj.value);
 		return false;
 		},
 		open: function () {
@@ -71,4 +72,13 @@ jQuery(function () {
 		}
 	 });
 	 jQuery("#in_city").autocomplete("option", "delay", 100);
+
+	 $('#cc_formdata').submit(function(e) {
+	 	e.preventDefault();
+	 	$('#in_city_coor').val(JSON.stringify(coordinates))
+	 	$('#in_cuisines').val(JSON.stringify(cuisines))
+	 	this.submit(); 
+	});
+
+    
 });

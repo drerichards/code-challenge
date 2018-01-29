@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::post('/view', 'RestaurantController@viewList');
+
+Route::get('/show/restaurant/{id}', 'RestaurantController@show');

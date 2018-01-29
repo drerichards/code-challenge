@@ -71,12 +71,16 @@
                     Hunger Extinguisher
                 </div>
 
-                {{ Form:: open(array('url' => '/view')) }}
+                {{ Form:: open(array('id'=>'cc_formdata','url' => '/view')) }}
                     <label for="in_city">City:</label>
                     <input type="input" id="in_city" name="city">
 
+                    <input type="hidden" id="in_city_coor" name="in_city_coor" value=''>
+                    <input type="hidden" id="in_cuisines" name="in_cuisines" value=''>
+
                     <label for="in_cuisine">Cuisine:</label>
                     <select type="select" id="in_cuisine" name="cuisine"></select>
+
                     <button type="submit" id="in_submit">Go!</button>
                 {{ Form::close() }}
             </div>
