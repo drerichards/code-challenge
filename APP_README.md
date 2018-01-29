@@ -2,7 +2,7 @@
 ***
 *Buzzes for A Bite* is  single page application where a user can find information on any restaurant within the API dataset. Results present restaurant data that is filtered from at least two endpoints located in the url 
 
-###Technologies used:
+##Technologies used:
 - [Zomato API version 2.1](https://developers.zomato.com/api#headline1) that offers restaurant details, reviews, and menu information
 - [Node.js] for a web application in order to protect API keys on the server
 - HTML5 to utilize HTML5 Canvas and other markup features
@@ -23,7 +23,7 @@
 - [Node JS download version 8.9.4](https://nodejs.org/en/download/). With this installation comes npm.
 - [Zomato API version 2.1](https://developers.zomato.com/api#headline1). Verify your email with the service, then follow the directions to generate an API key
 
-###How to use *Buzzes with A Bite*:
+##How to use *Buzzes with A Bite*:
 
 ##How to run the test suite
 - N/A
@@ -32,7 +32,7 @@ Example [https://developers.zomato.com/api/v2.1/cuisines?city_id=280](https://de
 
 The task is to create an application that presents the data from at least two endpoints. For example, an app that lists all sushi restaurants in New York City (using the `/search` [endpoint](https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&cuisines=177&sort=cost&order=asc)), and upon clicking on a restaurant takes you to a detail page that includes its info and reviews (using the `/reviews` endpoint). 
 
-###Dynamic information users can retrieve:
+##Dynamic information users can retrieve:
 - All restaurants returned from filters
 - Individual restaurant page with detailed restaurant information listed
 
@@ -76,13 +76,13 @@ localhost didn’t send any data.
 ERR_EMPTY_RESPONSE"
 
 
-###Developer: 
+##Developer: 
 <3 Mekesia ([@Githubbubber](https://github.com/Githubbubber) - I had lots of fun working on this app, and we hope you have lots of fun using it.
 
 ## License
 N/A
 
-###References:
+##References:
 - The Zomato API documentation, which was sparse!
 - Services (job queues, cache servers, search engines, etc.)
 - [Tutorial on YouTube by Traversy Media](https://www.youtube.com/watch?v=nqT8c5OFjEQ)
