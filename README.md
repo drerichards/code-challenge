@@ -2,42 +2,8 @@
 ## Pre-interview Technical Challenge 
 ### **Repository push access will close after 11:59pm Jan 28**
 
-Thank you for applying for our pilot software engineer development program! This challenge will be the focus of the technical conversation we'll have during your interview. It consists of two parts:
-
 * [A development challenge](#the-challenge)
 * [A few technical questions](#technical-questions)
-
-Please clone this repo on your machine and make a branch named **{yourname}-pilot-interview** containing:
-
-1. Your application code
-2. An APP_README.md file detailing the key architectural and UX decisions you made (including language(s), frameworks, and paradigms you utilized/implemented and why) as well as instructions for running and using the app. 
- 
-You'll be walking us through your code and running app during the technical part of your interview, so this will help you prepare. It's encouraged to start fleshing this out prior to even coding––we care first and foremost about your thoughtful approach, then clean and clear code, then a working app, then a fine looking UI.
-
-## The Challenge
-
-Zomato has a [public API](https://developers.zomato.com/api#headline1) that you can use to get restaurant information, including restaurant details, reviews, and menu information.
-
-As an example, [https://developers.zomato.com/api/v2.1/cuisines?city_id=280](https://developers.zomato.com/api/v2.1/cuisines?city_id=280) returns a list of all cuisines that can be found in New York City restaurants.
-
-The API requires you authenticate using a `user_key` which you can instantly [generate for free](https://developers.zomato.com/api#headline2).
-
-The task is to create an application that presents the data from at least two endpoints. For example, an app that lists all sushi restaurants in New York City (using the `/search` [endpoint](https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&cuisines=177&sort=cost&order=asc)), and upon clicking on a restaurant takes you to a detail page that includes its info and reviews (using the `/reviews` endpoint). 
-
-### Platform Choice
-
-You can create the application as either a web application or a mobile application in any of the following languages or platforms
-
-- .NET (Full Framework or Core), PHP, Ruby, Python and/or JavaScript for web applications
-- iOS, Android or Windows Mobile for mobile applications
-
-### Task requirements
-
-Feel free to spend as much or as little time on the exercise as you like as long as the following requirements have been met.  
-
-- Please complete the user story below.
-- Your code should compile and run in one step.
-- Feel free to use whatever frameworks / libraries / packages you like.
 
 #### Extra credit
 - include tests
@@ -58,11 +24,44 @@ So that **I can view details about the restaurant**
 Please include answers to the following questions in your `APP_README.md` markdown file.
 
 1. How long did you spend on this technical challenge? What would you add to your solution if you had more time?
-2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
-3. How would you track down a performance issue in production? Have you ever had to do this?
-4. How would you improve the Zomato API that you just used?
-5. Please describe yourself using JSON.
+4-5 hrs. Would let the user search by city and I would also make application more user responsive. Lastly add a backend since and parse the data on the backend so the user can have their page load quicker.
 
+2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
+Of the ES8 features. Object.values is useful. 
+
+```javascript
+const obj = {foo:'bar',bar:'foo'}
+    // I want the values for the this object
+    const values = Object.values(obj)
+    // I get an array of the values 
+```
+Not a language but a library, React. I really enjoy using Fragments new in react 16. 
+```javascript
+import React, { Fragment } from 'react'
+const Header = () => (
+  <Fragment>
+  <h1>Test</h1>
+  </Fragment>
+)
+// on the dom I would get only the h1. I believe if used correctly fragments will let us have much more readable doms and get out of div hell when not necessary. 
+```
+
+3. How would you track down a performance issue in production? Have you ever had to do this?
+As a web developer my number one tool is chrome dev tools. The time-line tool lets you the fps on your page and you can even simulate a low-end device enviroment or slow internet speed.
+
+4. How would you improve the Zomato API that you just used?
+A lot of the restaurants are missing images. Would be nice if I could toggle for ones that only show images. The nearby feature with meters does not seem to work. It said I was in New Jersey when I put 5m. Allow for search location and query with natural language instead of ids.
+
+5. Please describe yourself using JSON.
+``` JSON
+{
+  "name":"Brian",
+  "blood-type": "O-",
+  "interest": ["programming","entrepreneurship","helping others"],
+  "lovesToLearn": "true",
+  "passionate": "true",
+
+}
 
 #### Thanks for your time, we look forward to meeting with you!
 - The [BuildNG team](http://github.com/BuildNG)
