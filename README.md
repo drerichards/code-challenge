@@ -1,5 +1,9 @@
 # Preston Pilot Interview
 
+## Start 
+
+*yarn start* - head over to localhost:3000 to see the app in motion!
+
 ## Initial Thoughts & Plans
 
 ### Architecture
@@ -32,6 +36,9 @@ Home | Cuisines | Restaurants | Restaurant Details
 1. How long did you spend on this technical challenge? What would you add to your solution if you had more time?
 -----
 I ended up spending about 15 hours altogether on the solution - mostly getting hung up on refactoring before I should have,  react-router's new syntax and trying to implement axios' new library. Also spent way more time than I should have making wireframes. What can I say - I like visuals :)
+
+
+I had plans to add quite a bit more to this app and I plan to do so during this week just so I can work through it myself. Right now it fetches data on each page which is extremely inefficient. I'd move all those calls and data structuring over to the server and serve the data the way I want it to appear to the client. Also, I'd finish up the styling portions. Finally, feature-wise, it'd be a lot easier from the user's perspective to search straight from the home screen so I'd probably work on that.
 
 ******
 2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
