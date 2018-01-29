@@ -1,0 +1,36 @@
+@import '../../../styles/mixins';
+
+
+.review{
+	padding: 15px 0;
+}
+.review-heading{
+	display: flex;
+	flex-basis: row;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.reviewer{
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.review-title{
+	// font-weight: bold;
+	background-color: $secondary-color;
+	font-size: 0.8rem;
+	padding: 4px;
+	border-radius: 10px;
+	color: white;
+}
+
+.review-text{
+	font-size: 0.9rem;
+}
+
+hr {
+	border-width: 0px;
+	border-bottom: 2px solid $secondary-color;
+
+}

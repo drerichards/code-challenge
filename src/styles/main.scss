@@ -1,0 +1,39 @@
+@import './mixins';
+
+body {
+	background-color: $primary-color;
+	background-image: $bg-img;
+	background-repeat: repeat;
+	font-family: Helvetica, Arial, sans-serif
+}
+
+h1{
+	color: $primary-color;
+}
+
+.burger-medium{
+	width: 200px;
+	margin: 0 auto;
+}
+.center, {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+.page-container{
+	max-width: 60rem;
+	margin: 0 auto;
+}
+
+.container{
+	background-color: white;
+	padding: 25px;
+}
+
+.item-stars{
+	display: flex;
+	flex-direction: row;
+	content: ''
+}

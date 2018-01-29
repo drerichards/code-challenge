@@ -1,0 +1,63 @@
+@import '../../../styles/mixins';
+
+
+.restaurant-list{
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	
+}
+.restaurant-item{
+	display: flex;
+	align-items: center;
+	min-height: 75px;
+	border-bottom: 1px solid $grey;
+
+	> div{
+		padding: 0 25px;
+	}
+
+	.item-title-link {
+		flex: 3;
+		a { 
+			color:$primary-color;
+			text-decoration: none;
+			font-family: $theme-font;
+			font-weight: bold;
+		}
+	}
+	
+	.item-address{
+		flex: 4;
+		font-size: .9rem;
+	}
+	.item-price{
+		color: $primary-color;
+		font-weight: bold;
+		font-size: .9rem;
+	}
+	
+	.item-price, .item-stars{
+		flex: 1;
+		text-align: center;
+	}
+	
+}
+
+@media all and (max-width: 640px) {
+  
+	.restaurant-item {
+		padding: 25px;
+		-webkit-flex-flow: column;
+				flex-flow: column;
+				
+		> div{
+			margin-bottom: 10px;
+			box-sizing: border-box;
+			text-align: center;
+		}
+		.item-stars{
+			margin-bottom: 0;
+		}
+	}
+ }
