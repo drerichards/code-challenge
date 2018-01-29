@@ -13,7 +13,7 @@
 - [Node testing packages] used to test the most common user case scenarios. The code compiles and runs in one step.
 - Branding elements; [Logomakr](https://logomakr.com/), image editing with [Pixlr](https://pixlr.com/editor/)
 
-###Work process:
+### Work process:
 - Created a thorough markdown file making sure the file introduces all need to know information 
 - Created a Trello for the work plan
 
@@ -70,7 +70,7 @@ Have more examples of the url structure, offer common developer usage stats and 
 
 
 Notes
-- I unfortunately can't have the data loaded onto the page anymore, and do not know why. The page takes forever to load with a "Waiting for localhost" message on the screen. Eventually I see a timeout msg:
+- I unfortunately can't have the data loaded onto the page with JSON.parse() anymore, and do not know why. The page takes forever to load with a "Waiting for localhost" message on the screen. Eventually I see a timeout msg:
 "This page isn’t working
 localhost didn’t send any data.
 ERR_EMPTY_RESPONSE"
