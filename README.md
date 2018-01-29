@@ -1,68 +1,77 @@
-# BuildNG
-## Pre-interview Technical Challenge 
-### **Repository push access will close after 11:59pm Jan 28**
+# zomato
 
-Thank you for applying for our pilot software engineer development program! This challenge will be the focus of the technical conversation we'll have during your interview. It consists of two parts:
+Installation:
+    Navigate into the Zomato project folder and type ‘npm install’ in the terminal
+    Create a file named ‘config.js’ in the ‘src’ folder. Enter: exports.USER_KEY = ‘{Your Zomato API key}’
+    From the terminal start the application with ‘npm start’.
 
-* [A development challenge](#the-challenge)
-* [A few technical questions](#technical-questions)
+Architecture and UX:
+    Languages Used:
+        Html, CSS, Javascript
+    
+    Frameworks/Libraries Used:
+        React – I chose React in order to show my knowledge of a popular library which may prove useful to the WBB team should I be taken on. But from a technical      standpoint, I knew that the app would have one main function (get and show data), so I used it because of its ability to manage and store incoming API      data in a central location and disperse it as needed. The task from there was to set up the components to receive and manipulate from there. This only      aided easier maintenance and overall cleaner, compartmentalized code. 
+       
+       PropTypes – I used this to keep track of the passage of specific props from parent to child components. Lastly, I chose React because of its quick              rendering of elements and only updating ones that incurred changes in state. 
+       
+        Materialize – I chose Materialize to give a polished look to the overall presentation of UI elements in a short amount of time. 
 
-Please clone this repo on your machine and make a branch named **{yourname}-pilot-interview** containing:
+1.	How long did you spend on this technical challenge? What would you add to your solution if you had more time? 
+    The app took roughly week but would have taken less time had not large chunks of time been spent at work.
+    If I had more time, I would have added a loader to the search feature and messaging to inform the user in no results were found.
+    I also would have created a splash page that displayed the restaurant collections based upon the user’s current location.
+    I pulled geo coordinates in my fetch to show the restaurant location on google maps but apparently the API doesn’t work well with React v16. NPM packages gave headaches.
 
-1. Your application code
-2. An APP_README.md file detailing the key architectural and UX decisions you made (including language(s), frameworks, and paradigms you utilized/implemented and why) as well as instructions for running and using the app. 
- 
-You'll be walking us through your code and running app during the technical part of your interview, so this will help you prepare. It's encouraged to start fleshing this out prior to even coding––we care first and foremost about your thoughtful approach, then clean and clear code, then a working app, then a fine looking UI.
+2.	What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
+    I found the ErrorBoundary feature for React v16 to be useful since it catches errors that happen in individual component groups and shows an error message rather than causing the entire app to crash as would happen in v15. Plus the error messages are less cryptic.
 
-## The Challenge
+/////////////////////
+	class ErrorBoundary extends Component {    constructor(props) {        super(props)        this.state = { error: null, errorInfo: null }    }    componentDidCatch(error, errorInfo) {
+        // Catch errors in any components below and re-render with error message
+        this.setState({
+            error: error,
+            errorInfo: errorInfo
+        })
+    }
 
-Zomato has a [public API](https://developers.zomato.com/api#headline1) that you can use to get restaurant information, including restaurant details, reviews, and menu information.
+    render() {
+        if (this.state.errorInfo) {
+            // Error path
+            return (
+                <div>
+                    <h2>Something went wrong.</h2>
+                    <details style={{ whiteSpace: 'pre-wrap' }}>
+                        {this.state.error && this.state.error.toString()}
+                        <br />
+                        {this.state.errorInfo.componentStack}
+                    </details>
+                </div>
+            )
+        }
+        // Normally, just render children
+        return this.props.children
+    }
+}
 
-As an example, [https://developers.zomato.com/api/v2.1/cuisines?city_id=280](https://developers.zomato.com/api/v2.1/cuisines?city_id=280) returns a list of all cuisines that can be found in New York City restaurants.
+export default ErrorBoundary
+//////////////////////
 
-The API requires you authenticate using a `user_key` which you can instantly [generate for free](https://developers.zomato.com/api#headline2).
+3.	How would you track down a performance issue in production? Have you ever had to do this?
+No never had to do this. But from my research, I can see that most issues can be resolved before production with code review by leads and testing. People tend to incorporate code and fixes in their applications without fully understanding the documentation which could highlight conflict with other code or packages. Sometimes it may require staying up to date on patches and updates on certain packages that could also cause issues and need re-factoring. Proper planning of load distribution could also help with the server’s ability to manage traffic. The developer tools (Network) so far has been helpful for me in my minor production projects to track connectivity issues, response times, and HTTP errors.
 
-The task is to create an application that presents the data from at least two endpoints. For example, an app that lists all sushi restaurants in New York City (using the `/search` [endpoint](https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&cuisines=177&sort=cost&order=asc)), and upon clicking on a restaurant takes you to a detail page that includes its info and reviews (using the `/reviews` endpoint). 
+4.	How would you improve the Zomato API that you just used?
+For one, I would allow pictures for free users because it would have made my app look 10x cooler. I wish they would have provided a chart listing the city and cuisine codes instead of having the user to do API calls to find them.
 
-### Platform Choice
-
-You can create the application as either a web application or a mobile application in any of the following languages or platforms
-
-- .NET (Full Framework or Core), PHP, Ruby, Python and/or JavaScript for web applications
-- iOS, Android or Windows Mobile for mobile applications
-
-### Task requirements
-
-Feel free to spend as much or as little time on the exercise as you like as long as the following requirements have been met.  
-
-- Please complete the user story below.
-- Your code should compile and run in one step.
-- Feel free to use whatever frameworks / libraries / packages you like.
-
-#### Extra credit
-- include tests
-- implement a search/filter for users to narrow down the results your app returns
-
-### User Story
-
-As a **user running the application**  
-I can **view a list of restaurants**  
-So that **I know which restaurants are currently available**
-
-As a **user running the application**  
-I can **view each restaurant listed individually**  
-So that **I can view details about the restaurant**
-
-## Technical questions
-
-Please include answers to the following questions in your `APP_README.md` markdown file.
-
-1. How long did you spend on this technical challenge? What would you add to your solution if you had more time?
-2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
-3. How would you track down a performance issue in production? Have you ever had to do this?
-4. How would you improve the Zomato API that you just used?
-5. Please describe yourself using JSON.
-
-
-#### Thanks for your time, we look forward to meeting with you!
-- The [BuildNG team](http://github.com/BuildNG)
+5.	Please describe yourself using JSON.
+{
+  "name": "Andre",
+  "home": "Brooklyn",
+  "hometown": "Palm Beach
+  "occupation": "Software Engineer",
+  "skills": {
+    "front_end": ["HTML", "CSS", "Javascript", "React", "Redux"],
+    "back_end": ["Node/Express"],
+    "database": ["NoSQL", "MongoDB", "Mongoose"]
+  },
+  "interests": ["Travel", "Wikipedia", "Google Earth", "Drawing", "Food", "Road Trips"]
+}

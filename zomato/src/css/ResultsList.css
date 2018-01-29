@@ -1,0 +1,51 @@
+.ResultsList {
+    display: flex;
+    justify-content: space-around;
+    text-align: initial;
+    flex: 1 1 85%;
+    background-color: #fbb1b117;
+    margin: 1%;
+}
+
+.ResultsList>div {
+    margin: 1% 2%;
+}
+
+.ResultsList .results {
+    flex: 2 2 55%;
+    background-color: white;
+    padding: 1%;
+}
+
+.ResultsList .results span {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.ResultsList .list_item {
+    cursor: pointer;
+}
+
+.ResultsList .collapsible-header {
+    background-color: #247BA0;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.ResultsList .collapsible.popout {
+    overflow: auto;
+    height: 60vh;
+}
+
+.ResultsList .collapsible-body {
+    position: relative;
+    background-color: #fff;
+    font-size: 1.2em;
+}
+
+.ResultsList .btn {
+    position: absolute;
+    right: 3%;
+    bottom: 10%;
+}
