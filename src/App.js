@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       city: '',
       keywords: '',
-      results: ''
+      results: []
     };
     this.updateCityValue = this.updateCityValue.bind(this);
     this.updateQueryValue = this.updateQueryValue.bind(this);
@@ -26,12 +26,17 @@ class App extends Component {
 
     fetch(url, {headers: reqHeaders}).then((response) => {
       response.json().then((data) => {
-        console.log(data);
-        console.log(url);
-        // return data;
-        // this.setState({
-        //   results: data
-        // });
+        console.log(data.restaurants);
+        let restaurants = [];
+        for (let i = 0; i < data.restaurants.length; i ++) {
+          let restaurantId = data.restaurants[i].restaurant.id;
+          restaurants.push(restaurantId);
+        }
+        console.log(restaurants);
+        
+        this.setState({
+          results: restaurants
+        });
       });
     }).catch((error) => {
       console.log("Ugh there was an error.");
@@ -39,7 +44,8 @@ class App extends Component {
 
   }
 
-  getCityId() {
+  // Add functionality to search different cities in version 2
+  // getCityId() {
     // let city = this.state.city;
     // let url = 'https://developers.zomato.com/api/v2.1/locations?query=' + city;
 
@@ -51,49 +57,20 @@ class App extends Component {
     // }).catch((error) => {
     //   console.log("Ugh there was an error.");
     // });
-
-    let philadelphia = 287;
-    return philadelphia;
-  }
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
-    const fetchCityData = async () => {
-      await this.getCityId();
-    }
-
-    // fetchCityData().then((result) => {
-    //   console.log(result).then((result) => {
-    //     this.getRestaurantResults(result);
-    //   });
-    // }).catch((error) => {
-    //   console.log("Ugh there was an error.");
-    // });
-    fetchCityData().then((cityId) => {
-      this.getRestaurantResults(cityId);
-    })
-
-
-    // const fetchData = async () => {
-    //   const cityId = await this.getCityId();
-    //   const restaurants = await this.getRestaurantResults(cityId);
-    //   console.log(restaurants);
-    //   // return restaurants;
-    //   return restaurants;
+    // const fetchCityData = async () => {
+    //   await this.getCityId();
     // }
-    // fetchData().then((restaurants) => {
-    //   console.log(restaurants);
-    //   this.setState({
-    //     results: restaurants
-    //   })
-    // });
-    
-    // fetchCityData().then((response) => {
-    //   console.log(response);
-    //   this.getRestaurantResults(response);
+    // fetchCityData().then((cityId) => {
+    //   this.getRestaurantResults(cityId);
     // }).catch((error) => {
     //   console.log("Ugh there was an error.");
     // });
+    let philadelphia = 287;
+    this.getRestaurantResults(philadelphia);
   }
 
   updateCityValue(e) {
@@ -111,6 +88,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <header className="App-header">
@@ -138,7 +116,13 @@ class App extends Component {
             <input type="submit" value="Submit" />
           </form>
         </div>
-        <div>{this.state.results}</div>
+        <div>
+          <ul>
+            {this.state.results.map((restaurant) => {
+              return (<li key={restaurant}>{restaurant}</li>)
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
