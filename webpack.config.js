@@ -1,8 +1,10 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 module.exports = {
 	entry: [
+		'whatwg-fetch',
 		path.join(__dirname, 'src/index.js')
 	],
 	module: {
@@ -12,17 +14,29 @@ module.exports = {
 			loader: 'babel-loader'
 		},
 		{
-			test: /\.scss$/,
+			test: /\.(css|scss)$/,
 			loaders: ['style-loader', 'css-loader', 'sass-loader']
-		}]
+		},
+		{ test: /\.handlebars$/, loader: 'handlebars-loader' }]
 	},
 	output: {
 		path: path.join(__dirname, '/public'),
+		publicPath: '/',
 		filename: 'js/bundle.js'
 	},
+
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: __dirname + '/index.template.html',
+			title:'BuildNG Code Challenge',
+			filename: 'index.html',
+			inject: 'body'
+		})],
 	devServer: {
 		contentBase: path.join(__dirname, '/public'),
-		historyApiFallback: true,
+		historyApiFallback: {
+			index:'/'
+		},
 		port: 3000
 	}
 };

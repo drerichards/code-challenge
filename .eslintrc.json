@@ -20,6 +20,7 @@
         "react"
     ],
     "rules": {
+        "no-console":0,
         "react/jsx-uses-vars": "error",
         "indent": [
             "error",
