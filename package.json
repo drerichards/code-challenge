@@ -1,0 +1,16 @@
+{
+  "name": "zomato-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/PrestonII/code-challenge.git",
+  "author": "Preston Smith (Laptop) <PrestonII@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:server": "cd server &&yarn install && yarn start",
+    "start:clientFromServer": "cd client && yarn install && yarn start",
+    "start": "concurrently \"yarn start:server\" \"yarn start:clientFromServer\" "
+  },
+  "dependencies": {
+    "concurrently": "3.5.1"
+  }
+}
