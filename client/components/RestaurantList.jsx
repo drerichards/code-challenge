@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
 
 const RestaurantList = props => (
   <div className="container">
@@ -11,7 +13,9 @@ const RestaurantList = props => (
             <img src={restaurant.featured_image} alt="broken" />
           </div>
           <div className="restaurant-list-description">
-            <p className="title">{restaurant.name}</p>
+            <NavLink to={`/restaurant/${restaurant.id}`}>
+              <p className="title">{restaurant.name}</p>
+            </NavLink>
             <p><strong>Cuisines: </strong>{restaurant.cuisines}</p>
             <p>{restaurant.location.address}</p>
             <p><strong>Locality: </strong>{restaurant.location.locality}</p>

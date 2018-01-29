@@ -1,11 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { Router } from 'react-router';
+import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import history from './history';
-import { Home, NavBar, RestaurantList, SingleRestaurantView } from './components';
+import { NavBar, RestaurantList, SingleRestaurantView } from './components';
+import { locationThunk } from './redux';
 
-export default class Routes extends Component {
+class Routes extends Component {
   componentDidMount() {
+    this.props.locationThunk();
   }
   render() {
     return (
@@ -13,13 +16,16 @@ export default class Routes extends Component {
         <Fragment>
           <NavBar />
           <Switch>
-            {/* <Route path="/test" component={NavBar} /> */}
-            <Route path="/test" component={RestaurantList} />
             <Route path="/restaurant/:id" component={SingleRestaurantView} />
-            <Route component={Home} />
+            {/* <Route component={Home} /> */}
+            <Route component={RestaurantList} />
           </Switch>
         </Fragment>
       </Router>
     );
   }
 }
+
+const mapState = null;
+const mapDispatch = { locationThunk };
+export default connect(mapState, mapDispatch)(Routes);

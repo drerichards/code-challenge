@@ -7,30 +7,36 @@ class SearchBar extends Component {
   constructor() {
     super();
     this.state = {
-
+      query: '',
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleClick(){
-    this.props.restaurantsThunk();
+  handleClick() {
+    this.props.restaurantsThunk(this.state, this.props.location);
   }
+
+  handleChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
+    console.log(this.props);
     return (
-      <div className="field">
-        <div className="inlined">
-          <div className="control">
-            <input className="input " type="text" placeholder="Find Burgers etc" />
-            <button onClick={this.handleClick} className="button is-info">
-              Location
-            </button>
-          </div>
-          <div className="control">
-            <input className="input is-primary" type="text" placeholder="Location" />
-            <a className="button is-info">
-              Search
-            </a>
-          </div>
+      <div className="field is-grouped">
+        <div className="control">
+          <input onChange={this.handleChange} className="input" name="query" type="text" placeholder="Find Burgers etc" />
+        </div>
+        <div className="control">
+          <button onClick={this.handleClick} className="button is-info">
+            Search Nearby
+          </button>
         </div>
       </div>
     );
@@ -38,6 +44,8 @@ class SearchBar extends Component {
 }
 
 // export default SearchBar;
-const mapState = null; // ({ user, boards }) => ({ user, boards });
+const mapState = ({ location }) => ({ location });
 const mapDispatch = { restaurantsThunk };
 export default connect(mapState, mapDispatch)(SearchBar);
+
+
