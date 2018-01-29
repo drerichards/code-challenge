@@ -68,30 +68,30 @@ the "has_online_delivery" and "is_delivering_now" keys were always set to zero. 
 5. **Please describe yourself using JSON.**
 ```json
 {
-	name: "Dell Ward"
-	birthplace: "Brooklyn, NY"
-	education: "Masters in Computer Science"
-	married: true,
-	age: 30,
-	languages: [
+	"name": "Dell Ward",
+	"birthplace": "Brooklyn, NY",
+	"education": "Masters in Computer Science",
+	"married": true,
+	"age": 30,
+	"languages": [
 		"javascript", "python"
-	]
-	has_imposter_syndrome: true
-	interests: {
-		football: {
-			favorite_team: "NY Giants"
-			hated_team: "NE Patriots"
-		}
-		music: {
-			favorite_artist: "J.Cole",
-			favorite_albums_2017: [
-				"4 Your Eyes Only"
+	],
+	"has_imposter_syndrome": true,
+	"interests": {
+		"football": {
+			"favorite_team": "NY Giants",
+			"hated_team": "NE Patriots"
+		},
+		"music": {
+			"favorite_artist": "J.Cole",
+			"favorite_albums_2017": [
+				"4 Your Eyes Only",
 				"24K Magic",
 				"4:44",
 			]
-		}
-		loves_memes: true 
-	}
-	ready_to_get_foot_in_door: true
+		},
+		"loves_memes": true
+	},
+	"ready_to_get_foot_in_door": true
 }
 ```
